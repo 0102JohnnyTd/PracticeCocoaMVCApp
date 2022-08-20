@@ -11,6 +11,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var countLabel: UILabel!
 
     @IBAction private func didTapPlusButton(_ sender: Any) {
+        counter.increment()
     }
 
     @IBAction private func didTapMinusButton(_ sender: Any) {
