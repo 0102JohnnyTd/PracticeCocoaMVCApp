@@ -20,9 +20,17 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        counter.delegate = self
     }
 
+    private func updateCountLabel() {
+        countLabel.text = String(counter.count)
+    }
+}
 
+extension ViewController: CounterDelegate {
+    func didChangeCount() {
+        updateCountLabel()
+    }
 }
 
