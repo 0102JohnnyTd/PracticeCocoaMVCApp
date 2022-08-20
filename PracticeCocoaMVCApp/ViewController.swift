@@ -11,16 +11,28 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var countLabel: UILabel!
 
     @IBAction private func didTapPlusButton(_ sender: Any) {
+        counter.increment()
     }
 
     @IBAction private func didTapMinusButton(_ sender: Any) {
+        counter.decrement()
     }
+
+    private let counter = Counter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        counter.delegate = self
     }
 
+    private func updateCountLabel() {
+        countLabel.text = String(counter.count)
+    }
+}
 
+extension ViewController: CounterDelegate {
+    func didChangeCount() {
+        updateCountLabel()
+    }
 }
 
