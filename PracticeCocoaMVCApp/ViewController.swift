@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
     }
 
     @IBAction private func didTapMinusButton(_ sender: Any) {
+        counter.decrement()
     }
 
     private let counter = Counter()
